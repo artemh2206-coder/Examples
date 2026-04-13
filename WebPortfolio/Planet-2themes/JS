@@ -1,0 +1,498 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const container = document.getElementById("planet");
+  if (!container) return;
+
+  const script = document.createElement("script");
+  script.src = "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js";
+
+  script.onload = function () {
+    const scene = new THREE.Scene();
+
+    const camera = new THREE.PerspectiveCamera(
+      45,
+      container.clientWidth / container.clientHeight,
+      0.1,
+      1000
+    );
+    camera.position.z = 6;
+
+    const renderer = new THREE.WebGLRenderer({
+      alpha: true,
+      antialias: true
+    });
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    container.appendChild(renderer.domElement);
+
+    // =========================
+    // НАСТРОЙКИ
+    // =========================
+
+    // Укажи путь к своей карте-маске мира
+    // Белое = суша, черное = вода
+    const MASK_URL = "/portfolio/assets/world-land-mask.png";
+
+    const GLOBE_RADIUS = 2;
+    const LAND_RADIUS = 2.035;
+    const ATMOSPHERE_RADIUS = 2.2;
+
+    const LIGHT_THEME = {
+      ocean: "#bfe7ff",
+      land: "#b9dca4",
+      atmosphere: 0x9cc8ff
+    };
+
+    const DARK_THEME = {
+      ocean: "#111111",
+      landDots: "#d7b56d",
+      atmosphere: 0x7f8cff
+    };
+
+    // =========================
+    // ТЕМА
+    // =========================
+
+    function getCurrentTheme() {
+      const body = document.body;
+      const html = document.documentElement;
+
+      if (
+        body.classList.contains("dark") ||
+        html.classList.contains("dark") ||
+        body.dataset.theme === "dark" ||
+        html.dataset.theme === "dark"
+      ) {
+        return "dark";
+      }
+
+      if (
+        body.classList.contains("light") ||
+        html.classList.contains("light") ||
+        body.dataset.theme === "light" ||
+        html.dataset.theme === "light"
+      ) {
+        return "light";
+      }
+
+      return window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    }
+
+    // =========================
+    // ГРУППА ПЛАНЕТЫ
+    // =========================
+
+    const planetGroup = new THREE.Group();
+    scene.add(planetGroup);
+
+    // Основная сфера
+    const globeGeometry = new THREE.SphereGeometry(GLOBE_RADIUS, 96, 96);
+    const globeMaterial = new THREE.MeshStandardMaterial({
+      color: 0x111111,
+      roughness: 0.92,
+      metalness: 0.04
+    });
+    const globe = new THREE.Mesh(globeGeometry, globeMaterial);
+    planetGroup.add(globe);
+
+    // Атмосфера
+    const atmosphereGeometry = new THREE.SphereGeometry(ATMOSPHERE_RADIUS, 96, 96);
+
+    const atmosphereMaterial = new THREE.ShaderMaterial({
+      transparent: true,
+      depthWrite: false,
+      uniforms: {
+        glowColor: { value: new THREE.Color(DARK_THEME.atmosphere) }
+      },
+      vertexShader: `
+        varying vec3 vNormal;
+        void main() {
+          vNormal = normalize(normalMatrix * normal);
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+      `,
+      fragmentShader: `
+        varying vec3 vNormal;
+        uniform vec3 glowColor;
+
+        void main() {
+          float intensity = pow(0.72 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 2.4);
+          gl_FragColor = vec4(glowColor, intensity * 0.32);
+        }
+      `,
+      side: THREE.BackSide
+    });
+
+    const atmosphere = new THREE.Mesh(atmosphereGeometry, atmosphereMaterial);
+    planetGroup.add(atmosphere);
+
+    // =========================
+    // СЛОИ СУШИ
+    // =========================
+
+    let landTexture = null;
+    let landDots = null;
+    let maskCanvas = null;
+    let maskCtx = null;
+    let maskImageData = null;
+    let maskWidth = 0;
+    let maskHeight = 0;
+    let currentTheme = getCurrentTheme();
+
+    // =========================
+    // ЗАГРУЗКА МАСКИ
+    // =========================
+
+    function loadMaskImage(url) {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.crossOrigin = "anonymous";
+        img.onload = () => resolve(img);
+        img.onerror = reject;
+        img.src = url;
+      });
+    }
+
+    function setupMaskData(img) {
+      maskWidth = img.width;
+      maskHeight = img.height;
+
+      maskCanvas = document.createElement("canvas");
+      maskCanvas.width = maskWidth;
+      maskCanvas.height = maskHeight;
+      maskCtx = maskCanvas.getContext("2d", { willReadFrequently: true });
+
+      maskCtx.drawImage(img, 0, 0);
+      maskImageData = maskCtx.getImageData(0, 0, maskWidth, maskHeight).data;
+    }
+
+    function isLandAtUV(u, v) {
+      if (!maskImageData) return false;
+
+      const x = Math.max(0, Math.min(maskWidth - 1, Math.floor(u * (maskWidth - 1))));
+      const y = Math.max(0, Math.min(maskHeight - 1, Math.floor(v * (maskHeight - 1))));
+      const index = (y * maskWidth + x) * 4;
+
+      const r = maskImageData[index];
+      const g = maskImageData[index + 1];
+      const b = maskImageData[index + 2];
+
+      const brightness = (r + g + b) / 3;
+      return brightness > 127;
+    }
+
+    // =========================
+    // LIGHT THEME TEXTURE
+    // =========================
+
+    function createLightThemeTexture() {
+      const canvas = document.createElement("canvas");
+      canvas.width = maskWidth;
+      canvas.height = maskHeight;
+
+      const ctx = canvas.getContext("2d");
+      ctx.fillStyle = LIGHT_THEME.ocean;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const data = imgData.data;
+
+      const landColor = hexToRgb(LIGHT_THEME.land);
+
+      for (let y = 0; y < maskHeight; y++) {
+        for (let x = 0; x < maskWidth; x++) {
+          const i = (y * maskWidth + x) * 4;
+
+          const r = maskImageData[i];
+          const g = maskImageData[i + 1];
+          const b = maskImageData[i + 2];
+          const brightness = (r + g + b) / 3;
+
+          if (brightness > 127) {
+            data[i] = landColor.r;
+            data[i + 1] = landColor.g;
+            data[i + 2] = landColor.b;
+            data[i + 3] = 255;
+          }
+        }
+      }
+
+      ctx.putImageData(imgData, 0, 0);
+
+      const texture = new THREE.CanvasTexture(canvas);
+      texture.colorSpace = THREE.SRGBColorSpace;
+      texture.wrapS = THREE.RepeatWrapping;
+      texture.wrapT = THREE.ClampToEdgeWrapping;
+      texture.needsUpdate = true;
+
+      return texture;
+    }
+
+    // =========================
+    // DARK THEME LAND DOTS
+    // =========================
+
+    function createDarkThemeLandDots() {
+      const dotsGeometry = new THREE.BufferGeometry();
+      const positions = [];
+      const colors = [];
+
+      const dotColor = new THREE.Color(DARK_THEME.landDots);
+      const sampleCount = 18000;
+
+      for (let i = 0; i < sampleCount; i++) {
+        const lat = Math.random() * 180 - 90;
+        const lon = Math.random() * 360 - 180;
+
+        const u = (lon + 180) / 360;
+        const v = (90 - lat) / 180;
+
+        if (!isLandAtUV(u, v)) continue;
+
+        const phi = (90 - lat) * Math.PI / 180;
+        const theta = (lon + 180) * Math.PI / 180;
+
+        const x = -LAND_RADIUS * Math.sin(phi) * Math.cos(theta);
+        const y = LAND_RADIUS * Math.cos(phi);
+        const z = LAND_RADIUS * Math.sin(phi) * Math.sin(theta);
+
+        positions.push(x, y, z);
+
+        // Чуть-чуть вариации яркости, чтобы не было слишком плоско
+        const intensity = 0.75 + Math.random() * 0.25;
+        colors.push(
+          dotColor.r * intensity,
+          dotColor.g * intensity,
+          dotColor.b * intensity
+        );
+      }
+
+      dotsGeometry.setAttribute(
+        "position",
+        new THREE.Float32BufferAttribute(positions, 3)
+      );
+
+      dotsGeometry.setAttribute(
+        "color",
+        new THREE.Float32BufferAttribute(colors, 3)
+      );
+
+      const dotsMaterial = new THREE.PointsMaterial({
+        size: 0.022,
+        transparent: true,
+        opacity: 0.95,
+        vertexColors: true,
+        depthWrite: false
+      });
+
+      const points = new THREE.Points(dotsGeometry, dotsMaterial);
+      points.renderOrder = 2;
+
+      return points;
+    }
+
+    // =========================
+    // ПЕРЕКЛЮЧЕНИЕ ТЕМЫ
+    // =========================
+
+    function clearSurfaceLayers() {
+      if (landDots) {
+        planetGroup.remove(landDots);
+        landDots.geometry.dispose();
+        landDots.material.dispose();
+        landDots = null;
+      }
+
+      if (landTexture) {
+        landTexture.dispose();
+        landTexture = null;
+      }
+    }
+
+    function applyTheme(theme) {
+      clearSurfaceLayers();
+
+      if (theme === "light") {
+        landTexture = createLightThemeTexture();
+
+        globe.material.map = landTexture;
+        globe.material.color.set(LIGHT_THEME.ocean);
+        globe.material.roughness = 0.95;
+        globe.material.metalness = 0.02;
+        globe.material.needsUpdate = true;
+
+        atmosphereMaterial.uniforms.glowColor.value.set(LIGHT_THEME.atmosphere);
+      } else {
+        globe.material.map = null;
+        globe.material.color.set(DARK_THEME.ocean);
+        globe.material.roughness = 0.92;
+        globe.material.metalness = 0.04;
+        globe.material.needsUpdate = true;
+
+        landDots = createDarkThemeLandDots();
+        planetGroup.add(landDots);
+
+        atmosphereMaterial.uniforms.glowColor.value.set(DARK_THEME.atmosphere);
+      }
+
+      currentTheme = theme;
+    }
+window.updatePlanetTheme = function (forcedTheme) {
+  applyTheme(forcedTheme || getCurrentTheme());
+};
+	  
+function watchThemeChanges() {
+  const observer = new MutationObserver(() => {
+    const newTheme = getCurrentTheme();
+    if (newTheme !== currentTheme) {
+      applyTheme(newTheme);
+    }
+  });
+
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["class", "data-theme"]
+  });
+
+  observer.observe(document.body, {
+    attributes: true,
+    attributeFilter: ["class", "data-theme"]
+  });
+
+  const media = window.matchMedia("(prefers-color-scheme: dark)");
+  media.addEventListener("change", () => {
+    const newTheme = getCurrentTheme();
+    if (newTheme !== currentTheme) {
+      applyTheme(newTheme);
+    }
+  });
+
+  window.addEventListener("themechange", function (e) {
+    const forcedTheme = e.detail && e.detail.theme ? e.detail.theme : getCurrentTheme();
+
+    if (forcedTheme !== currentTheme) {
+      applyTheme(forcedTheme);
+    }
+  });
+}
+
+    // =========================
+    // ВСПОМОГАТЕЛЬНОЕ
+    // =========================
+
+    function hexToRgb(hex) {
+      const color = new THREE.Color(hex);
+      return {
+        r: Math.round(color.r * 255),
+        g: Math.round(color.g * 255),
+        b: Math.round(color.b * 255)
+      };
+    }
+
+    // =========================
+    // СВЕТ
+    // =========================
+
+    const light = new THREE.DirectionalLight(0xffffff, 1.8);
+    light.position.set(5, 3, 5);
+    scene.add(light);
+
+    const ambient = new THREE.AmbientLight(0xffffff, 0.8);
+    scene.add(ambient);
+
+    // =========================
+    // УПРАВЛЕНИЕ МЫШКОЙ
+    // =========================
+
+    let isDragging = false;
+    let prevMouseX = 0;
+    let prevMouseY = 0;
+
+    let autoRotationY = 0;
+    let dragRotationY = 0;
+    let dragRotationX = 0;
+
+    let targetDragRotationY = 0;
+    let targetDragRotationX = 0;
+
+    const autoRotateSpeed = 0.0013;
+
+    container.style.cursor = "grab";
+
+    container.addEventListener("mousedown", function (event) {
+      isDragging = true;
+      prevMouseX = event.clientX;
+      prevMouseY = event.clientY;
+      container.style.cursor = "grabbing";
+    });
+
+    window.addEventListener("mouseup", function () {
+      isDragging = false;
+      container.style.cursor = "grab";
+    });
+
+    window.addEventListener("mousemove", function (event) {
+      if (!isDragging) return;
+
+      const deltaX = event.clientX - prevMouseX;
+      const deltaY = event.clientY - prevMouseY;
+
+      prevMouseX = event.clientX;
+      prevMouseY = event.clientY;
+
+      targetDragRotationY += deltaX * 0.01;
+      targetDragRotationX += deltaY * 0.005;
+
+      targetDragRotationX = Math.max(-0.6, Math.min(0.6, targetDragRotationX));
+    });
+
+    // =========================
+    // АНИМАЦИЯ
+    // =========================
+
+    function animate() {
+      requestAnimationFrame(animate);
+
+      if (!isDragging) {
+        autoRotationY += autoRotateSpeed;
+      }
+
+      dragRotationY += (targetDragRotationY - dragRotationY) * 0.12;
+      dragRotationX += (targetDragRotationX - dragRotationX) * 0.12;
+
+      planetGroup.rotation.y = autoRotationY + dragRotationY;
+      planetGroup.rotation.x = dragRotationX;
+
+      renderer.render(scene, camera);
+    }
+
+    function onResize() {
+      const w = container.clientWidth;
+      const h = container.clientHeight;
+
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h);
+    }
+
+    window.addEventListener("resize", onResize);
+
+    // =========================
+    // СТАРТ
+    // =========================
+
+    loadMaskImage(MASK_URL)
+      .then((img) => {
+        setupMaskData(img);
+        applyTheme(getCurrentTheme());
+        watchThemeChanges();
+        animate();
+      })
+      .catch((error) => {
+        console.error("Не удалось загрузить карту-маску мира:", error);
+      });
+  };
+
+  document.head.appendChild(script);
+});
