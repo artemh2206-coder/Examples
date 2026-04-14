@@ -1,0 +1,38 @@
+document.addEventListener('DOMContentLoaded', function () {
+  const cards = document.querySelectorAll('.ap-project-card');
+
+  cards.forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      if (window.innerWidth <= 767) return;
+
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const moveX = (x / rect.width - 0.5) * 16;
+      const moveY = (y / rect.height - 0.5) * 16;
+
+      const icon = card.querySelector('.ap-project-icon');
+      const orb1 = card.querySelector('.ap-project-orb--1');
+      const orb2 = card.querySelector('.ap-project-orb--2');
+      const lines = card.querySelector('.ap-project-lines');
+
+      if (icon) icon.style.transform = `translate(${moveX * 0.35}px, ${moveY * 0.35}px) scale(1.08) rotate(-4deg)`;
+      if (orb1) orb1.style.transform = `translate(${moveX * 0.5}px, ${moveY * 0.5}px) scale(1.05)`;
+      if (orb2) orb2.style.transform = `translate(${moveX * -0.45}px, ${moveY * -0.45}px) scale(1.06)`;
+      if (lines) lines.style.transform = `translate(${moveX * 0.22}px, ${moveY * 0.22}px) scale(1.02)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      const icon = card.querySelector('.ap-project-icon');
+      const orb1 = card.querySelector('.ap-project-orb--1');
+      const orb2 = card.querySelector('.ap-project-orb--2');
+      const lines = card.querySelector('.ap-project-lines');
+
+      if (icon) icon.style.transform = '';
+      if (orb1) orb1.style.transform = '';
+      if (orb2) orb2.style.transform = '';
+      if (lines) lines.style.transform = '';
+    });
+  });
+});

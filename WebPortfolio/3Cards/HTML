@@ -1,0 +1,51 @@
+<div class="ap-projects-grid">
+  <article class="ap-project-card ap-project-card--coffee">
+    <div class="ap-project-visual">
+      <div class="ap-project-icon">☕</div>
+      <div class="ap-project-orb ap-project-orb--1"></div>
+      <div class="ap-project-orb ap-project-orb--2"></div>
+      <div class="ap-project-lines"></div>
+    </div>
+    <div class="ap-project-overlay"></div>
+    <div class="ap-project-content">
+      <span class="ap-project-tag">Coffee Shop</span>
+      <h3>Coffee House Website</h3>
+      <p>Warm branding, elegant layout and a modern atmosphere for a local coffee business.</p>
+    <a href="http://localhost/coffee/" class="ap-project-btn" target="_blank" rel="noopener noreferrer">
+  View Project
+</a>
+    </div>
+  </article>
+
+  <article class="ap-project-card ap-project-card--store">
+    <div class="ap-project-visual">
+      <div class="ap-project-icon">🛍</div>
+      <div class="ap-project-orb ap-project-orb--1"></div>
+      <div class="ap-project-orb ap-project-orb--2"></div>
+      <div class="ap-project-lines"></div>
+    </div>
+    <div class="ap-project-overlay"></div>
+    <div class="ap-project-content">
+      <span class="ap-project-tag">E-commerce</span>
+      <h3>Online Store</h3>
+      <p>Clear product presentation, strong hierarchy and a shopping flow built for usability.</p>
+      <a href="#" class="ap-project-btn">View Project</a>
+    </div>
+  </article>
+
+  <article class="ap-project-card ap-project-card--clinic">
+    <div class="ap-project-visual">
+      <div class="ap-project-icon">✚</div>
+      <div class="ap-project-orb ap-project-orb--1"></div>
+      <div class="ap-project-orb ap-project-orb--2"></div>
+      <div class="ap-project-lines"></div>
+    </div>
+    <div class="ap-project-overlay"></div>
+    <div class="ap-project-content">
+      <span class="ap-project-tag">Medical</span>
+      <h3>Clinic Website</h3>
+      <p>Trust-focused interface, clean sections and calm visual language for healthcare services.</p>
+      <a href="#" class="ap-project-btn">View Project</a>
+    </div>
+  </article>
+</div>
