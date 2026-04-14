@@ -1,0 +1,33 @@
+document.addEventListener('DOMContentLoaded', function () {
+  var rows = document.querySelectorAll('.coffee-hours-row');
+  var status = document.getElementById('coffeeOpenStatus');
+  if (!rows.length || !status) return;
+
+  var schedule = {
+    0: { open: 9, close: 20 },
+    1: { open: 8, close: 21 },
+    2: { open: 8, close: 21 },
+    3: { open: 8, close: 21 },
+    4: { open: 8, close: 21 },
+    5: { open: 8, close: 22 },
+    6: { open: 9, close: 22 }
+  };
+
+  var now = new Date();
+  var day = now.getDay();
+  var hour = now.getHours();
+  var today = schedule[day];
+
+  rows.forEach(function (row) {
+    if (Number(row.getAttribute('data-day')) === day) {
+      row.classList.add('is-today');
+    }
+  });
+
+  var isOpen = hour >= today.open && hour < today.close;
+  status.classList.toggle('is-closed', !isOpen);
+  status.querySelector('.coffee-status-text').textContent = isOpen
+    ? 'We are open right now. Come in for a fresh roast.'
+    : 'We are currently closed. See you for the next brew.';
+});
+

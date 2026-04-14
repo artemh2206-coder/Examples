@@ -1,0 +1,90 @@
+<section class="coffee-contact-block" id="coffee-contact-block">
+  <div class="coffee-contact-shell">
+    <div class="coffee-contact-head">
+      <span class="coffee-contact-kicker">Visit Us In Tbilisi</span>
+      <h2 class="coffee-contact-title">Fresh coffee, warm light, and a place you will want to return to.</h2>
+      <p class="coffee-contact-text">
+        Drop by for a slow espresso, a quick takeaway, or a long conversation over dessert.
+        We are open every day in the heart of old Tbilisi.
+      </p>
+    </div>
+
+    <div class="coffee-contact-grid">
+      <article class="coffee-card coffee-card--featured">
+        <div class="coffee-card-badge">Open Daily</div>
+        <h3 class="coffee-card-title">Working Hours</h3>
+
+        <ul class="coffee-hours-list">
+          <li class="coffee-hours-row" data-day="1">
+            <span>Monday</span>
+            <strong>08:00 - 21:00</strong>
+          </li>
+          <li class="coffee-hours-row" data-day="2">
+            <span>Tuesday</span>
+            <strong>08:00 - 21:00</strong>
+          </li>
+          <li class="coffee-hours-row" data-day="3">
+            <span>Wednesday</span>
+            <strong>08:00 - 21:00</strong>
+          </li>
+          <li class="coffee-hours-row" data-day="4">
+            <span>Thursday</span>
+            <strong>08:00 - 21:00</strong>
+          </li>
+          <li class="coffee-hours-row" data-day="5">
+            <span>Friday</span>
+            <strong>08:00 - 22:00</strong>
+          </li>
+          <li class="coffee-hours-row" data-day="6">
+            <span>Saturday</span>
+            <strong>09:00 - 22:00</strong>
+          </li>
+          <li class="coffee-hours-row" data-day="0">
+            <span>Sunday</span>
+            <strong>09:00 - 20:00</strong>
+          </li>
+        </ul>
+
+        <div class="coffee-status" id="coffeeOpenStatus">
+          <span class="coffee-status-dot"></span>
+          <span class="coffee-status-text">Checking today's schedule...</span>
+        </div>
+      </article>
+
+      <article class="coffee-card">
+        <div class="coffee-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z" stroke="currentColor" stroke-width="1.8"/>
+            <circle cx="12" cy="10" r="2.8" stroke="currentColor" stroke-width="1.8"/>
+          </svg>
+        </div>
+        <h3 class="coffee-card-title">Address</h3>
+        <p class="coffee-card-text">
+          18 Shardeni Street<br>
+          Old Tbilisi, Tbilisi 0105<br>
+          Georgia
+        </p>
+        <a class="coffee-link" href="https://maps.google.com/?q=18+Shardeni+Street+Old+Tbilisi+Georgia" target="_blank" rel="noopener">
+          Open on map
+        </a>
+      </article>
+
+      <article class="coffee-card">
+        <div class="coffee-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M6.6 4.5h2.5c.4 0 .8.3.9.7l.7 3c.1.4-.1.9-.5 1.1l-1.5.8a14 14 0 0 0 5.8 5.8l.8-1.5c.2-.4.7-.6 1.1-.5l3 .7c.4.1.7.5.7.9v2.5c0 .5-.4 1-.9 1.1-.8.1-1.6.2-2.4.2C10.2 20 4 13.8 4 6.9c0-.8.1-1.6.2-2.4.1-.5.6-.9 1.1-.9Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="coffee-card-title">Reservations</h3>
+        <p class="coffee-card-text">
+          Main line:<br>
+          <a href="tel:+995322184260">+995 32 218 42 60</a>
+        </p>
+        <p class="coffee-card-text">
+          Events & group bookings:<br>
+          <a href="tel:+995555184260">+995 555 18 42 60</a>
+        </p>
+      </article>
+    </div>
+  </div>
+</section>

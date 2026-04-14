@@ -1,0 +1,32 @@
+<section class="coffee-mini-contact">
+  <div class="coffee-mini-contact__inner">
+    <div class="coffee-mini-contact__intro">
+      <span class="coffee-mini-contact__eyebrow">Visit Aroma Brew</span>
+      <h2>Find us in Old Tbilisi</h2>
+      <p>Fresh coffee, warm light, and a table waiting for you every day.</p>
+    </div>
+
+    <div class="coffee-mini-contact__grid">
+      <div class="coffee-mini-card">
+        <span class="coffee-mini-card__label">Hours</span>
+        <h3>Open Daily</h3>
+        <p>Mon - Fri: 08:00 - 21:00</p>
+        <p>Sat - Sun: 09:00 - 22:00</p>
+      </div>
+
+      <div class="coffee-mini-card">
+        <span class="coffee-mini-card__label">Address</span>
+        <h3>Old Tbilisi</h3>
+        <p>18 Shardeni Street</p>
+        <p>Tbilisi 0105, Georgia</p>
+      </div>
+
+      <div class="coffee-mini-card">
+        <span class="coffee-mini-card__label">Call Us</span>
+        <h3>Reservations</h3>
+        <p><a href="tel:+995322184260">+995 32 218 42 60</a></p>
+        <p><a href="tel:+995555184260">+995 555 18 42 60</a></p>
+      </div>
+    </div>
+  </div>
+</section>
