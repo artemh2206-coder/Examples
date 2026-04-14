@@ -1,0 +1,37 @@
+// JS кнопки переключения темы
+document.addEventListener("DOMContentLoaded", function () {
+    const toggleWrap = document.getElementById("theme-toggle");
+    if (!toggleWrap) return;
+
+    const toggleLink = toggleWrap.querySelector("a");
+    if (!toggleLink) return;
+
+    function applyTheme(theme) {
+        if (theme === "dark") {
+            document.body.classList.add("dark");
+            toggleLink.textContent = "☀️";
+            localStorage.setItem("theme", "dark");
+        } else {
+            document.body.classList.remove("dark");
+            toggleLink.textContent = "🌙";
+            localStorage.setItem("theme", "light");
+        }
+
+        document.body.setAttribute("data-theme", theme);
+        document.documentElement.setAttribute("data-theme", theme);
+
+        if (typeof window.updatePlanetTheme === "function") {
+            window.updatePlanetTheme(theme);
+        }
+    }
+
+    const savedTheme = localStorage.getItem("theme") === "dark" ? "dark" : "light";
+    applyTheme(savedTheme);
+
+    toggleLink.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const newTheme = document.body.classList.contains("dark") ? "light" : "dark";
+        applyTheme(newTheme);
+    });
+});

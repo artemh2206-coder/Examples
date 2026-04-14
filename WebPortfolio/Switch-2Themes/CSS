@@ -1,0 +1,388 @@
+/* =========================
+   GLOBAL
+========================= */
+body {
+    background: #f4f7fb;
+    color: #111827;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.wp-site-blocks {
+    background: #f4f7fb;
+    color: #111827;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* =========================
+   HEADER - LIGHT
+========================= */
+.site-header-custom,
+.site-header-custom .wp-block-group {
+    background: #e7edf8 !important;
+    color: #111827 !important;
+    border-bottom: 1px solid #d5deee !important;
+}
+
+.site-header-custom a,
+.site-header-custom .wp-block-site-title a,
+.site-header-custom .wp-block-navigation a {
+    color: #111827 !important;
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.site-header-custom .wp-block-navigation a:hover,
+.site-header-custom .wp-block-site-title a:hover {
+    color: #315efb !important;
+}
+
+.site-header-inner {
+    align-items: center;
+}
+
+.site-header-nav {
+    gap: 20px;
+    align-items: center;
+}
+
+/* =========================
+   FOOTER - LIGHT
+========================= */
+.site-footer-custom,
+.site-footer-custom .wp-block-group {
+    background: #e7edf8 !important;
+    color: #42526b !important;
+    border-top: none !important;
+    box-shadow: none !important;
+}
+
+.site-footer-custom p,
+.site-footer-custom a {
+    color: #42526b !important;
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.site-footer-custom a:hover {
+    color: #315efb !important;
+}
+
+/* =========================
+   THEME TOGGLE
+========================= */
+#theme-toggle {
+    display: flex;
+    align-items: center;
+}
+
+#theme-toggle .wp-block-button__link {
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    border: 1px solid #c8d3e5;
+    background: #ffffff;
+    color: #111827 !important;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 14px rgba(17, 24, 39, 0.06);
+}
+
+#theme-toggle .wp-block-button__link:hover {
+    background: #dde6f5;
+    border-color: #b8c6dc;
+    transform: translateY(-1px);
+}
+
+/* =========================
+   DARK MODE - GLOBAL
+========================= */
+body.dark {
+    background: #0d1323;
+    color: #e2e8f0;
+}
+
+body.dark .wp-site-blocks {
+    background: #0d1323;
+    color: #e2e8f0;
+}
+
+/* =========================
+   HEADER - DARK
+========================= */
+body.dark .site-header-custom,
+body.dark .site-header-custom .wp-block-group {
+    background: #151d31 !important;
+    color: #e2e8f0 !important;
+    border-bottom: 1px solid #27324a !important;
+}
+
+body.dark .site-header-custom a,
+body.dark .site-header-custom .wp-block-site-title a,
+body.dark .site-header-custom .wp-block-navigation a {
+    color: #e2e8f0 !important;
+}
+
+body.dark .site-header-custom .wp-block-navigation a:hover,
+body.dark .site-header-custom .wp-block-site-title a:hover {
+    color: #7db4ff !important;
+}
+
+/* =========================
+   FOOTER - DARK
+========================= */
+body.dark .site-footer-custom,
+body.dark .site-footer-custom .wp-block-group {
+    background: #151d31 !important;
+    color: #cfd8e6 !important;
+    border-top: none !important;
+    box-shadow: none !important;
+}
+
+body.dark .site-footer-custom p,
+body.dark .site-footer-custom a {
+    color: #cfd8e6 !important;
+}
+
+body.dark .site-footer-custom a:hover {
+    color: #7db4ff !important;
+}
+
+/* =========================
+   TOGGLE - DARK
+========================= */
+body.dark #theme-toggle .wp-block-button__link {
+    background: #1c2740;
+    color: #e2e8f0 !important;
+    border-color: #33425f;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+body.dark #theme-toggle .wp-block-button__link:hover {
+    background: #25324f;
+    transform: translateY(-1px);
+}
+
+/* =========================
+   TEXT - DARK
+========================= */
+body.dark p,
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark h5,
+body.dark h6,
+body.dark li,
+body.dark span {
+    color: #e2e8f0;
+}
+
+body.dark a {
+    color: #9ec5ff;
+}
+
+/* =========================
+   OPTIONAL: CARDS / GROUPS
+========================= */
+.wp-block-group:not(.site-header-custom):not(.site-footer-custom) {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark .wp-block-group:not(.site-header-custom):not(.site-footer-custom) {
+    color: #e2e8f0;
+}
+
+/* =========================
+   MAIN NAV POPUP MENU
+========================= */
+
+/* Светлая тема */
+.main-nav .wp-block-navigation__responsive-container,
+.main-nav .wp-block-navigation__responsive-container-content,
+.main-nav .wp-block-navigation__responsive-dialog {
+    background: #e7edf8 !important;
+    color: #111827 !important;
+}
+
+.main-nav .wp-block-navigation__responsive-container a,
+.main-nav .wp-block-navigation__responsive-container .wp-block-navigation-item__content,
+.main-nav .wp-block-navigation__responsive-container .wp-block-page-list a,
+.main-nav .wp-block-navigation__responsive-container .wp-block-navigation-submenu__toggle {
+    color: #111827 !important;
+}
+
+.main-nav .wp-block-navigation__responsive-container a:hover,
+.main-nav .wp-block-navigation__responsive-container .wp-block-navigation-item__content:hover,
+.main-nav .wp-block-navigation__responsive-container .wp-block-page-list a:hover {
+    color: #315efb !important;
+}
+
+/* Иконки открыть / закрыть */
+.main-nav .wp-block-navigation__responsive-container-open,
+.main-nav .wp-block-navigation__responsive-container-close {
+    color: #111827 !important;
+    fill: #111827 !important;
+}
+
+/* Тёмная тема */
+body.dark .main-nav .wp-block-navigation__responsive-container,
+body.dark .main-nav .wp-block-navigation__responsive-container-content,
+body.dark .main-nav .wp-block-navigation__responsive-dialog {
+    background: #151d31 !important;
+    color: #e2e8f0 !important;
+}
+
+body.dark .main-nav .wp-block-navigation__responsive-container a,
+body.dark .main-nav .wp-block-navigation__responsive-container .wp-block-navigation-item__content,
+body.dark .main-nav .wp-block-navigation__responsive-container .wp-block-page-list a,
+body.dark .main-nav .wp-block-navigation__responsive-container .wp-block-navigation-submenu__toggle {
+    color: #e2e8f0 !important;
+}
+
+body.dark .main-nav .wp-block-navigation__responsive-container a:hover,
+body.dark .main-nav .wp-block-navigation__responsive-container .wp-block-navigation-item__content:hover,
+body.dark .main-nav .wp-block-navigation__responsive-container .wp-block-page-list a:hover {
+    color: #7db4ff !important;
+}
+
+body.dark .main-nav .wp-block-navigation__responsive-container-open,
+body.dark .main-nav .wp-block-navigation__responsive-container-close {
+    color: #e2e8f0 !important;
+    fill: #e2e8f0 !important;
+}
+.main-nav .wp-block-navigation__responsive-container,
+.main-nav .wp-block-navigation__responsive-container *,
+.main-nav .wp-block-navigation__responsive-dialog,
+.main-nav .wp-block-navigation__responsive-dialog * {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark .main-nav .wp-block-navigation__responsive-container,
+body.dark .main-nav .wp-block-navigation__responsive-container *,
+body.dark .main-nav .wp-block-navigation__responsive-dialog,
+body.dark .main-nav .wp-block-navigation__responsive-dialog * {
+    background-color: #151d31 !important;
+}
+/* =========================
+   PAGE TEXT / HEADINGS FIX
+========================= */
+
+/* СВЕТЛАЯ ТЕМА */
+body:not(.dark) .wp-site-blocks,
+body:not(.dark) .wp-site-blocks p,
+body:not(.dark) .wp-site-blocks li,
+body:not(.dark) .wp-site-blocks span,
+body:not(.dark) .wp-site-blocks strong,
+body:not(.dark) .wp-site-blocks em,
+body:not(.dark) .wp-site-blocks blockquote,
+body:not(.dark) .wp-site-blocks figcaption,
+body:not(.dark) .wp-site-blocks label,
+body:not(.dark) .wp-site-blocks .wp-block-paragraph,
+body:not(.dark) .wp-site-blocks .wp-block-list,
+body:not(.dark) .wp-site-blocks .wp-block-quote,
+body:not(.dark) .wp-site-blocks .wp-block-table,
+body:not(.dark) .wp-site-blocks .wp-block-details,
+body:not(.dark) .wp-site-blocks .wp-block-preformatted,
+body:not(.dark) .wp-site-blocks .wp-block-code {
+    color: #243244 !important;
+}
+
+body:not(.dark) .wp-site-blocks h1,
+body:not(.dark) .wp-site-blocks h2,
+body:not(.dark) .wp-site-blocks h3,
+body:not(.dark) .wp-site-blocks h4,
+body:not(.dark) .wp-site-blocks h5,
+body:not(.dark) .wp-site-blocks h6,
+body:not(.dark) .wp-site-blocks .wp-block-heading {
+    color: #0f172a !important;
+}
+
+body:not(.dark) .wp-site-blocks a {
+    color: #4b647d !important;
+}
+
+body:not(.dark) .wp-site-blocks a:hover {
+    color: #2f4c68 !important;
+}
+
+/* ТЁМНАЯ ТЕМА */
+body.dark .wp-site-blocks,
+body.dark .wp-site-blocks p,
+body.dark .wp-site-blocks li,
+body.dark .wp-site-blocks span,
+body.dark .wp-site-blocks strong,
+body.dark .wp-site-blocks em,
+body.dark .wp-site-blocks blockquote,
+body.dark .wp-site-blocks figcaption,
+body.dark .wp-site-blocks label,
+body.dark .wp-site-blocks .wp-block-paragraph,
+body.dark .wp-site-blocks .wp-block-list,
+body.dark .wp-site-blocks .wp-block-quote,
+body.dark .wp-site-blocks .wp-block-table,
+body.dark .wp-site-blocks .wp-block-details,
+body.dark .wp-site-blocks .wp-block-preformatted,
+body.dark .wp-site-blocks .wp-block-code {
+    color: #d6deea !important;
+}
+
+body.dark .wp-site-blocks h1,
+body.dark .wp-site-blocks h2,
+body.dark .wp-site-blocks h3,
+body.dark .wp-site-blocks h4,
+body.dark .wp-site-blocks h5,
+body.dark .wp-site-blocks h6,
+body.dark .wp-site-blocks .wp-block-heading {
+    color: #f3f7ff !important;
+}
+
+body.dark .wp-site-blocks a {
+    color: #7f9bb3 !important;
+}
+
+body.dark .wp-site-blocks a:hover {
+    color: #a9bfd4 !important;
+}
+
+/* ПРОБИВАЕМ GUTENBERG ЦВЕТА */
+body.dark .wp-site-blocks .has-text-color,
+body.dark .wp-site-blocks .has-link-color,
+body.dark .wp-site-blocks .has-inline-color {
+    color: #d6deea !important;
+}
+
+body.dark .wp-site-blocks .wp-block-heading.has-text-color,
+body.dark .wp-site-blocks .has-heading-color {
+    color: #f3f7ff !important;
+}
+
+body:not(.dark) .wp-site-blocks .has-text-color,
+body:not(.dark) .wp-site-blocks .has-link-color,
+body:not(.dark) .wp-site-blocks .has-inline-color {
+    color: #243244 !important;
+}
+
+body:not(.dark) .wp-site-blocks .wp-block-heading.has-text-color,
+body:not(.dark) .wp-site-blocks .has-heading-color {
+    color: #0f172a !important;
+}
+.my-btn .elementor-button {
+  background: #E3ECFF !important;
+  color: #1f2a37 !important;
+}
+
+.my-btn .elementor-button:hover {
+  background: #D3E2FF !important;
+  color: #1f2a37 !important;
+}
+
+body.dark .my-btn .elementor-button {
+  background: #2C3A55 !important;
+  color: #ffffff !important;
+}
+
+body.dark .my-btn .elementor-button:hover {
+  background: #35456A !important;
+  color: #ffffff !important;
+}
