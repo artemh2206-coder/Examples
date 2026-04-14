@@ -1,0 +1,72 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById("coffeeMenuModal");
+  const openBtn = document.getElementById("coffeeMenuOpenBtn");
+  const closeBtn = document.getElementById("coffeeMenuCloseBtn");
+  const backdrop = document.getElementById("coffeeMenuBackdrop");
+  const prevBtn = document.getElementById("coffeeMenuPrevBtn");
+  const nextBtn = document.getElementById("coffeeMenuNextBtn");
+  const pages = document.querySelectorAll(".coffee-menu-page");
+  const touchArea = document.getElementById("coffeeMenuPages");
+
+  if (!modal || !openBtn || !closeBtn || !backdrop || !prevBtn || !nextBtn || !pages.length) return;
+
+  let current = 0;
+  let startX = 0;
+
+  function renderPage() {
+    pages.forEach((page, index) => {
+      page.classList.toggle("active", index === current);
+    });
+  }
+
+  function openMenu() {
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("coffee-menu-lock");
+  }
+
+  function closeMenu() {
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("coffee-menu-lock");
+  }
+
+  function nextPage() {
+    current = (current + 1) % pages.length;
+    renderPage();
+  }
+
+  function prevPage() {
+    current = (current - 1 + pages.length) % pages.length;
+    renderPage();
+  }
+
+  openBtn.addEventListener("click", openMenu);
+  closeBtn.addEventListener("click", closeMenu);
+  backdrop.addEventListener("click", closeMenu);
+  nextBtn.addEventListener("click", nextPage);
+  prevBtn.addEventListener("click", prevPage);
+
+  document.addEventListener("keydown", function (e) {
+    if (!modal.classList.contains("is-open")) return;
+    if (e.key === "Escape") closeMenu();
+    if (e.key === "ArrowRight") nextPage();
+    if (e.key === "ArrowLeft") prevPage();
+  });
+
+  if (touchArea) {
+    touchArea.addEventListener("touchstart", function (e) {
+      startX = e.changedTouches[0].clientX;
+    }, { passive: true });
+
+    touchArea.addEventListener("touchend", function (e) {
+      const endX = e.changedTouches[0].clientX;
+      const diff = endX - startX;
+      if (Math.abs(diff) < 40) return;
+      if (diff < 0) nextPage();
+      else prevPage();
+    }, { passive: true });
+  }
+
+  renderPage();
+});

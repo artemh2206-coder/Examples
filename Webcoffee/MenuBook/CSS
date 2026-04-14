@@ -1,0 +1,454 @@
+.coffee-menu-launch-section {
+  padding: 30px 20px 20px;
+  text-align: center;
+}
+
+.coffee-menu-open-btn {
+  display: inline-flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  min-width: 240px !important;
+  padding: 18px 30px !important;
+  border: 1px solid rgba(255,248,225,.16) !important;
+  border-radius: 999px !important;
+  background: linear-gradient(135deg, #6d4c41, #3e2723) !important;
+  color: #fff8e1 !important;
+  box-shadow: 0 14px 30px rgba(0,0,0,.22) !important;
+  cursor: pointer !important;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease !important;
+}
+
+.coffee-menu-open-btn:hover {
+  transform: translateY(-3px) !important;
+  background: linear-gradient(135deg, #8d6e63, #4e342e) !important;
+  box-shadow: 0 18px 36px rgba(0,0,0,.28) !important;
+}
+
+.coffee-menu-open-btn-sub {
+  color: #e7d8cd !important;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  letter-spacing: 1.6px !important;
+  text-transform: uppercase !important;
+}
+
+.coffee-menu-open-btn-main {
+  color: #fff8e1 !important;
+  font-family: "Playfair Display", serif !important;
+  font-size: 26px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+}
+
+.coffee-menu-modal {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 99999 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transition: opacity .3s ease, visibility .3s ease !important;
+}
+
+.coffee-menu-modal.is-open {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+.coffee-menu-backdrop {
+  position: absolute !important;
+  inset: 0 !important;
+  background: rgba(12,8,6,.72) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+.coffee-menu-panel {
+  position: relative !important;
+  width: min(1180px, calc(100vw - 40px)) !important;
+  max-height: calc(100vh - 40px) !important;
+  overflow: hidden !important;
+  border-radius: 24px !important;
+  background: linear-gradient(180deg, #241813 0%, #1a120e 100%) !important;
+  border: 1px solid rgba(255,248,225,.08) !important;
+  box-shadow: 0 28px 70px rgba(0,0,0,.45) !important;
+  transform: translateY(16px) scale(.98) !important;
+  transition: transform .3s ease !important;
+}
+
+.coffee-menu-modal.is-open .coffee-menu-panel {
+  transform: translateY(0) scale(1) !important;
+}
+
+.coffee-menu-close-btn {
+  position: absolute !important;
+  top: 14px !important;
+  right: 14px !important;
+  width: 44px !important;
+  height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid rgba(255,248,225,.14) !important;
+  border-radius: 999px !important;
+  background: rgba(255,248,225,.08) !important;
+  color: #fff8e1 !important;
+  font-size: 28px !important;
+  line-height: 1 !important;
+  cursor: pointer !important;
+  z-index: 60 !important;
+  transition: background .25s ease, transform .25s ease !important;
+}
+
+.coffee-menu-close-btn:hover {
+  background: #6d4c41 !important;
+  transform: rotate(90deg) !important;
+}
+
+.coffee-menu-book-big {
+  display: grid !important;
+  grid-template-columns: 320px 1fr !important;
+  min-height: min(760px, calc(100vh - 40px)) !important;
+}
+
+.coffee-menu-book-left {
+  background: linear-gradient(135deg, #6d4c41 0%, #3e2723 100%) !important;
+  border-right: 1px solid rgba(255,248,225,.08) !important;
+  position: relative !important;
+}
+
+.coffee-menu-book-left::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 18px !important;
+  bottom: 18px !important;
+  left: 20px !important;
+  width: 8px !important;
+  border-radius: 10px !important;
+  background: linear-gradient(180deg, #8d6e63, #2f1f19) !important;
+}
+
+.coffee-menu-book-left-inner {
+  padding: 80px 38px 40px 50px !important;
+}
+
+.coffee-menu-book-kicker {
+  display: inline-block !important;
+  margin-bottom: 16px !important;
+  color: #d7a86e !important;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+}
+
+.coffee-menu-book-left-inner h2 {
+  margin: 0 0 18px 0 !important;
+  color: #fff8e1 !important;
+  font-family: "Playfair Display", serif !important;
+  font-size: 54px !important;
+  line-height: .95 !important;
+}
+
+.coffee-menu-book-left-inner p {
+  margin: 0 !important;
+  color: #e7d8cd !important;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 15px !important;
+  line-height: 1.85 !important;
+}
+
+.coffee-menu-book-right {
+  position: relative !important;
+  padding: 34px !important;
+  min-width: 0 !important;
+}
+
+.coffee-menu-pages-wrap {
+  position: relative !important;
+}
+
+.coffee-menu-pages {
+  position: relative !important;
+  min-height: 560px !important;
+  background: linear-gradient(180deg, #f2e7db 0%, #eadbca 100%) !important;
+  border-radius: 22px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(78,52,40,.12) !important;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.28) !important;
+}
+
+.coffee-menu-page {
+  position: absolute !important;
+  inset: 0 !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 24px !important;
+  padding: 28px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateX(30px) !important;
+  transition: opacity .35s ease, transform .35s ease !important;
+}
+
+.coffee-menu-page.active {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateX(0) !important;
+}
+
+.coffee-menu-drink {
+  display: flex !important;
+  flex-direction: column !important;
+  background: rgba(255,248,225,.3) !important;
+  border: 1px solid rgba(62,39,35,.08) !important;
+  border-radius: 18px !important;
+  overflow: hidden !important;
+  box-shadow: 0 10px 24px rgba(0,0,0,.08) !important;
+  min-width: 0 !important;
+}
+
+.coffee-menu-drink-photo {
+  height: 250px !important;
+  background: #d9c7b7 !important;
+  overflow: hidden !important;
+}
+
+.coffee-menu-drink-photo img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+.coffee-menu-drink-info {
+  padding: 20px 20px 22px !important;
+}
+
+.coffee-menu-drink-info h3 {
+  margin: 0 0 8px 0 !important;
+  color: #3e2723 !important;
+  font-family: "Playfair Display", serif !important;
+  font-size: 30px !important;
+  line-height: 1.1 !important;
+}
+
+.coffee-menu-drink-tags {
+  margin-bottom: 12px !important;
+  color: #8a6d5d !important;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 1.2px !important;
+  text-transform: uppercase !important;
+}
+
+.coffee-menu-drink-info p {
+  margin: 0 0 16px 0 !important;
+  color: #5b4438 !important;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 15px !important;
+  line-height: 1.8 !important;
+}
+
+.coffee-menu-drink-comp {
+  color: #6d4c41 !important;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  line-height: 1.7 !important;
+}
+
+/* КНОПКИ ПО БОКАМ СТРАНИЦ */
+.coffee-menu-controls {
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  z-index: 40 !important;
+}
+
+.coffee-menu-nav-btn {
+  position: absolute !important;
+  top: 50% !important;
+  width: 58px !important;
+  height: 58px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid rgba(255,248,225,.18) !important;
+  border-radius: 999px !important;
+  background: linear-gradient(135deg, #6d4c41, #3e2723) !important;
+  color: #fff8e1 !important;
+  font-size: 24px !important;
+  line-height: 1 !important;
+  cursor: pointer !important;
+  z-index: 41 !important;
+  box-shadow: 0 14px 30px rgba(0,0,0,.28) !important;
+  pointer-events: auto !important;
+  transition: transform .25s ease, background .25s ease !important;
+}
+
+.coffee-menu-prev-btn {
+  left: 10px !important;
+  transform: translateY(-50%) !important;
+}
+
+.coffee-menu-next-btn {
+  right: 10px !important;
+  transform: translateY(-50%) !important;
+}
+
+.coffee-menu-nav-btn:hover {
+  background: linear-gradient(135deg, #8d6e63, #4e342e) !important;
+  transform: translateY(-50%) scale(1.06) !important;
+}
+
+body.coffee-menu-lock {
+  overflow: hidden !important;
+}
+
+@media (max-width: 1024px) {
+  .coffee-menu-panel {
+    width: min(96vw, 1100px) !important;
+    max-height: calc(100vh - 24px) !important;
+  }
+
+  .coffee-menu-book-big {
+    grid-template-columns: 270px 1fr !important;
+  }
+
+  .coffee-menu-book-left-inner {
+    padding: 70px 28px 30px 42px !important;
+  }
+
+  .coffee-menu-book-left-inner h2 {
+    font-size: 42px !important;
+  }
+
+  .coffee-menu-pages {
+    min-height: 520px !important;
+  }
+
+  .coffee-menu-page {
+    gap: 18px !important;
+    padding: 20px !important;
+  }
+
+  .coffee-menu-drink-photo {
+    height: 210px !important;
+  }
+
+  .coffee-menu-drink-info h3 {
+    font-size: 25px !important;
+  }
+
+  .coffee-menu-drink-info p {
+    font-size: 14px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .coffee-menu-open-btn {
+    min-width: 210px !important;
+    padding: 16px 24px !important;
+  }
+
+  .coffee-menu-open-btn-main {
+    font-size: 22px !important;
+  }
+
+  .coffee-menu-panel {
+    width: calc(100vw - 16px) !important;
+    max-height: calc(100vh - 16px) !important;
+    border-radius: 20px !important;
+  }
+
+  .coffee-menu-close-btn {
+    top: 10px !important;
+    right: 10px !important;
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 24px !important;
+  }
+
+  .coffee-menu-book-big {
+    grid-template-columns: 1fr !important;
+  }
+
+  .coffee-menu-book-left {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,248,225,.08) !important;
+  }
+
+  .coffee-menu-book-left::before {
+    display: none !important;
+  }
+
+  .coffee-menu-book-left-inner {
+    padding: 54px 18px 22px !important;
+  }
+
+  .coffee-menu-book-left-inner h2 {
+    font-size: 34px !important;
+  }
+
+  .coffee-menu-book-left-inner p {
+    font-size: 14px !important;
+    line-height: 1.7 !important;
+  }
+
+  .coffee-menu-book-right {
+    padding: 14px 14px 18px !important;
+  }
+
+  .coffee-menu-pages {
+    min-height: 0 !important;
+    height: 52vh !important;
+  }
+
+  .coffee-menu-page {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    padding: 14px !important;
+    overflow-y: auto !important;
+  }
+
+  .coffee-menu-drink-photo {
+    height: 170px !important;
+  }
+
+  .coffee-menu-drink-info {
+    padding: 16px !important;
+  }
+
+  .coffee-menu-drink-info h3 {
+    font-size: 22px !important;
+  }
+
+  .coffee-menu-drink-info p {
+    font-size: 13px !important;
+    line-height: 1.7 !important;
+  }
+
+  .coffee-menu-nav-btn {
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 18px !important;
+  }
+
+  .coffee-menu-prev-btn {
+    left: 4px !important;
+  }
+
+  .coffee-menu-next-btn {
+    right: 4px !important;
+  }
+}

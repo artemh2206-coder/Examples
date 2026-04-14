@@ -1,0 +1,177 @@
+<section class="coffee-menu-launch-section">
+  <div class="coffee-menu-launch-wrap">
+    <button class="coffee-menu-open-btn" id="coffeeMenuOpenBtn" type="button">
+      <span class="coffee-menu-open-btn-sub">Discover our selection</span>
+      <span class="coffee-menu-open-btn-main">Open Menu</span>
+    </button>
+  </div>
+</section>
+
+<div class="coffee-menu-modal" id="coffeeMenuModal" aria-hidden="true">
+  <div class="coffee-menu-backdrop" id="coffeeMenuBackdrop"></div>
+
+  <div class="coffee-menu-panel" role="dialog" aria-modal="true" aria-label="Coffee Menu">
+    <button class="coffee-menu-close-btn" id="coffeeMenuCloseBtn" type="button" aria-label="Close menu">
+      ×
+    </button>
+
+    <div class="coffee-menu-book-big">
+      <div class="coffee-menu-book-left">
+        <div class="coffee-menu-book-left-inner">
+          <span class="coffee-menu-book-kicker">Aroma Brew</span>
+          <h2>Coffee Menu</h2>
+          <p>
+            Explore our signature drinks, crafted with carefully selected beans,
+            rich textures, and warm coffeehouse character.
+          </p>
+        </div>
+      </div>
+
+      <div class="coffee-menu-book-right">
+        <div class="coffee-menu-pages" id="coffeeMenuPages">
+
+          <!-- PAGE 1 -->
+          <div class="coffee-menu-page active">
+            <div class="coffee-menu-drink">
+              <div class="coffee-menu-drink-photo">
+                <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=900&q=80" alt="Espresso">
+              </div>
+              <div class="coffee-menu-drink-info">
+                <h3>Espresso</h3>
+                <div class="coffee-menu-drink-tags">Strong • Classic</div>
+                <p>Rich concentrated coffee with a bold aroma and deep roasted finish.</p>
+                <div class="coffee-menu-drink-comp">Coffee, water</div>
+              </div>
+            </div>
+
+            <div class="coffee-menu-drink">
+              <div class="coffee-menu-drink-photo">
+                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80" alt="Cappuccino">
+              </div>
+              <div class="coffee-menu-drink-info">
+                <h3>Cappuccino</h3>
+                <div class="coffee-menu-drink-tags">Balanced • Creamy</div>
+                <p>A classic harmony of espresso, steamed milk and soft airy foam.</p>
+                <div class="coffee-menu-drink-comp">Espresso, milk, milk foam</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PAGE 2 -->
+          <div class="coffee-menu-page">
+            <div class="coffee-menu-drink">
+              <div class="coffee-menu-drink-photo">
+                <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=900&q=80" alt="Latte">
+              </div>
+              <div class="coffee-menu-drink-info">
+                <h3>Latte</h3>
+                <div class="coffee-menu-drink-tags">Smooth • Milky</div>
+                <p>Soft and comforting with velvety milk texture and gentle coffee notes.</p>
+                <div class="coffee-menu-drink-comp">Espresso, steamed milk</div>
+              </div>
+            </div>
+
+            <div class="coffee-menu-drink">
+              <div class="coffee-menu-drink-photo">
+                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=900&q=80" alt="Flat White">
+              </div>
+              <div class="coffee-menu-drink-info">
+                <h3>Flat White</h3>
+                <div class="coffee-menu-drink-tags">Velvety • Intense</div>
+                <p>A smoother milk texture with a stronger espresso body and clean finish.</p>
+                <div class="coffee-menu-drink-comp">Double espresso, microfoam milk</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PAGE 3 -->
+          <div class="coffee-menu-page">
+            <div class="coffee-menu-drink">
+              <div class="coffee-menu-drink-photo">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=80" alt="Americano">
+              </div>
+              <div class="coffee-menu-drink-info">
+                <h3>Americano</h3>
+                <div class="coffee-menu-drink-tags">Clean • Deep</div>
+                <p>Espresso diluted with hot water for a longer, smooth and aromatic cup.</p>
+                <div class="coffee-menu-drink-comp">Espresso, hot water</div>
+              </div>
+            </div>
+
+            <div class="coffee-menu-drink">
+              <div class="coffee-menu-drink-photo">
+                <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=900&q=80" alt="Mocha">
+              </div>
+              <div class="coffee-menu-drink-info">
+                <h3>Mocha</h3>
+                <div class="coffee-menu-drink-tags">Chocolate • Cozy</div>
+                <p>A warm blend of espresso, chocolate and milk with a dessert-like finish.</p>
+                <div class="coffee-menu-drink-comp">Espresso, chocolate, milk</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PAGE 4 -->
+          <div class="coffee-menu-page">
+            <div class="coffee-menu-drink">
+              <div class="coffee-menu-drink-photo">
+                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=900&q=80" alt="Cold Brew">
+              </div>
+              <div class="coffee-menu-drink-info">
+                <h3>Cold Brew</h3>
+                <div class="coffee-menu-drink-tags">Refreshing • Smooth</div>
+                <p>Slow-steeped coffee with low acidity and an easy, chilled character.</p>
+                <div class="coffee-menu-drink-comp">Cold brewed coffee, ice</div>
+              </div>
+            </div>
+
+            <div class="coffee-menu-drink">
+              <div class="coffee-menu-drink-photo">
+                <img src="https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?auto=format&fit=crop&w=900&q=80" alt="Iced Latte">
+              </div>
+              <div class="coffee-menu-drink-info">
+                <h3>Iced Latte</h3>
+                <div class="coffee-menu-drink-tags">Chilled • Light</div>
+                <p>A cool mix of espresso, milk and ice for a lighter coffee moment.</p>
+                <div class="coffee-menu-drink-comp">Espresso, milk, ice</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PAGE 5 -->
+          <div class="coffee-menu-page">
+            <div class="coffee-menu-drink">
+              <div class="coffee-menu-drink-photo">
+                <img src="https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?auto=format&fit=crop&w=900&q=80" alt="Caramel Latte">
+              </div>
+              <div class="coffee-menu-drink-info">
+                <h3>Caramel Latte</h3>
+                <div class="coffee-menu-drink-tags">Sweet • Warm</div>
+                <p>A smooth latte with caramel notes and a soft, comforting sweetness.</p>
+                <div class="coffee-menu-drink-comp">Espresso, milk, caramel syrup</div>
+              </div>
+            </div>
+
+            <div class="coffee-menu-drink">
+              <div class="coffee-menu-drink-photo">
+                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80" alt="Vanilla Raf">
+              </div>
+              <div class="coffee-menu-drink-info">
+                <h3>Vanilla Raf</h3>
+                <div class="coffee-menu-drink-tags">Creamy • Signature</div>
+                <p>A rich whipped coffee drink with vanilla and a luxurious silky body.</p>
+                <div class="coffee-menu-drink-comp">Espresso, cream, vanilla sugar</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+<div class="coffee-menu-controls">
+  <button class="coffee-menu-nav-btn coffee-menu-prev-btn" id="coffeeMenuPrevBtn" type="button" aria-label="Previous page">←</button>
+  <button class="coffee-menu-nav-btn coffee-menu-next-btn" id="coffeeMenuNextBtn" type="button" aria-label="Next page">→</button>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
