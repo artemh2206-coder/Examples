@@ -1,0 +1,98 @@
+<div class="am-skills-grid">
+  <article class="am-card am-card--tall">
+    <div class="am-card__media">
+      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968672.png" alt="WordPress">
+    </div>
+    <div class="am-card__body">
+      <span class="am-card__tag">CMS</span>
+      <h3>WordPress</h3>
+      <p>Flexible website building</p>
+    </div>
+    <div class="am-card__hover">
+      <p>I use WordPress to build structured, responsive pages and customize layouts for clean and manageable websites.</p>
+    </div>
+  </article>
+
+  <article class="am-card">
+    <div class="am-card__media">
+      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript">
+    </div>
+    <div class="am-card__body">
+      <span class="am-card__tag">Code</span>
+      <h3>JavaScript</h3>
+      <p>Motion and interaction</p>
+    </div>
+    <div class="am-card__hover">
+      <p>I use JavaScript for hover effects, UI behavior, dynamic sections and making pages feel more alive.</p>
+    </div>
+  </article>
+
+  <article class="am-card am-card--small">
+    <div class="am-card__media">
+      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968242.png" alt="CSS">
+    </div>
+    <div class="am-card__body">
+      <span class="am-card__tag">Style</span>
+      <h3>CSS</h3>
+      <p>Visual control</p>
+    </div>
+    <div class="am-card__hover">
+      <p>I use CSS to shape contrast, spacing, hover states, transitions and the visual atmosphere of a page.</p>
+    </div>
+  </article>
+
+  <article class="am-card am-card--wide">
+    <div class="am-card__media">
+      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png" alt="Figma">
+    </div>
+    <div class="am-card__body">
+      <span class="am-card__tag">Design</span>
+      <h3>Figma</h3>
+      <p>Layout and direction</p>
+    </div>
+    <div class="am-card__hover">
+      <p>I use Figma to think through composition, structure and visual direction before or during the build process.</p>
+    </div>
+  </article>
+
+  <article class="am-card">
+    <div class="am-card__media">
+      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968267.png" alt="HTML">
+    </div>
+    <div class="am-card__body">
+      <span class="am-card__tag">Markup</span>
+      <h3>HTML</h3>
+      <p>Clean structure</p>
+    </div>
+    <div class="am-card__hover">
+      <p>I build pages with clear structure so content stays readable, scalable and easier to maintain.</p>
+    </div>
+  </article>
+
+  <article class="am-card am-card--tall">
+    <div class="am-card__media">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="ChatGPT">
+    </div>
+    <div class="am-card__body">
+      <span class="am-card__tag">AI</span>
+      <h3>ChatGPT</h3>
+      <p>Ideas and workflow speed</p>
+    </div>
+    <div class="am-card__hover">
+      <p>I use ChatGPT for ideation, content structure, problem solving and accelerating technical decisions in the workflow.</p>
+    </div>
+  </article>
+ <article class="am-card am-card--wide">
+  <div class="am-card__media">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub">
+  </div>
+  <div class="am-card__body">
+    <span class="am-card__tag">Workflow</span>
+    <h3>GitHub</h3>
+    <p>Version control and project flow</p>
+  </div>
+  <div class="am-card__hover">
+    <p>I use GitHub to keep projects organized, track changes, manage code safely and maintain a cleaner development workflow.</p>
+  </div>
+</article>
+</div>
