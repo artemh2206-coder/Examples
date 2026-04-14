@@ -1,0 +1,238 @@
+<section class="coffee-beans-section">
+  <div class="coffee-beans-box">
+
+    <div class="coffee-beans-head">
+      <span class="coffee-beans-kicker">Our Coffee Selection</span>
+      <h2>Signature Coffee Origins</h2>
+    </div>
+
+    <div class="coffee-beans-list" id="coffeeBeansList">
+
+      <!-- ETHIOPIA -->
+      <article class="bean-row active">
+        <div class="bean-row-title">
+          <span class="bean-name">Ethiopia Yirgacheffe</span>
+          <span class="bean-arrow">+</span>
+        </div>
+
+        <div class="bean-row-content">
+          <div class="bean-meta">
+
+            <div>
+              <span class="bean-label">Strength</span>
+              <div class="bean-rating">
+                <span class="bean filled"></span>
+                <span class="bean filled"></span>
+                <span class="bean filled"></span>
+                <span class="bean"></span>
+                <span class="bean"></span>
+              </div>
+            </div>
+
+            <div>
+              <span class="bean-label">Acidity</span>
+              <div class="bean-rating">
+                <span class="bean filled"></span>
+                <span class="bean filled"></span>
+                <span class="bean filled"></span>
+                <span class="bean filled"></span>
+                <span class="bean filled"></span>
+              </div>
+            </div>
+
+            <div>
+              <span class="bean-label">Origin</span>
+              <span class="bean-value">Ethiopia</span>
+            </div>
+
+          </div>
+
+          <p class="bean-desc">
+            Floral and tea-like with bright citrus notes and a clean elegant finish.
+          </p>
+        </div>
+      </article>
+
+      <!-- COLOMBIA -->
+      <article class="bean-row">
+        <div class="bean-row-title">
+          <span class="bean-name">Colombia Supremo</span>
+          <span class="bean-arrow">+</span>
+        </div>
+
+        <div class="bean-row-content">
+          <div class="bean-meta">
+
+            <div>
+              <span class="bean-label">Strength</span>
+              <div class="bean-rating">
+                <span class="bean filled"></span>
+                <span class="bean filled"></span>
+                <span class="bean filled"></span>
+                <span class="bean filled"></span>
+                <span class="bean"></span>
+              </div>
+            </div>
+
+            <div>
+              <span class="bean-label">Acidity</span>
+              <div class="bean-rating">
+                <span class="bean filled"></span>
+                <span class="bean filled"></span>
+                <span class="bean filled"></span>
+                <span class="bean"></span>
+                <span class="bean"></span>
+              </div>
+            </div>
+
+            <div>
+              <span class="bean-label">Origin</span>
+              <span class="bean-value">Colombia</span>
+            </div>
+
+          </div>
+
+          <p class="bean-desc">
+            Balanced body with caramel sweetness and soft chocolate finish.
+          </p>
+        </div>
+      </article>
+
+      <!-- BRAZIL -->
+      <article class="bean-row">
+        <div class="bean-row-title">
+          <span class="bean-name">Brazil Santos</span>
+          <span class="bean-arrow">+</span>
+        </div>
+
+        <div class="bean-row-content">
+          <div class="bean-meta">
+
+            <div>
+              <span class="bean-label">Strength</span>
+              <div class="bean-rating">
+                <span class="bean filled"></span>
+                <span class="bean filled"></span>
+                <span class="bean filled"></span>
+                <span class="bean filled"></span>
+                <span class="bean"></span>
+              </div>
+            </div>
+
+            <div>
+              <span class="bean-label">Acidity</span>
+              <div class="bean-rating">
+                <span class="bean filled"></span>
+                <span class="bean filled"></span>
+                <span class="bean"></span>
+                <span class="bean"></span>
+                <span class="bean"></span>
+              </div>
+            </div>
+
+            <div>
+              <span class="bean-label">Origin</span>
+              <span class="bean-value">Brazil</span>
+            </div>
+
+          </div>
+
+          <p class="bean-desc">
+            Nutty and chocolate-forward with low acidity and smooth texture.
+          </p>
+        </div>
+      </article>
+
+      <!-- GUATEMALA -->
+      <article class="bean-row">
+        <div class="bean-row-title">
+          <span class="bean-name">Guatemala Antigua</span>
+          <span class="bean-arrow">+</span>
+        </div>
+
+        <div class="bean-row-content">
+          <div class="bean-meta">
+
+            <div>
+              <span class="bean-label">Strength</span>
+              <div class="bean-rating">
+                <span class="bean filled"></span>
+                <span class="bean filled"></span>
+                <span class="bean filled"></span>
+                <span class="bean filled"></span>
+                <span class="bean filled"></span>
+              </div>
+            </div>
+
+            <div>
+              <span class="bean-label">Acidity</span>
+              <div class="bean-rating">
+                <span class="bean filled"></span>
+                <span class="bean filled"></span>
+                <span class="bean filled"></span>
+                <span class="bean"></span>
+                <span class="bean"></span>
+              </div>
+            </div>
+
+            <div>
+              <span class="bean-label">Origin</span>
+              <span class="bean-value">Guatemala</span>
+            </div>
+
+          </div>
+
+          <p class="bean-desc">
+            Full-bodied with cocoa, spice and deep roasted character.
+          </p>
+        </div>
+      </article>
+
+      <!-- KENYA -->
+      <article class="bean-row">
+        <div class="bean-row-title">
+          <span class="bean-name">Kenya AA</span>
+          <span class="bean-arrow">+</span>
+        </div>
+
+        <div class="bean-row-content">
+          <div class="bean-meta">
+
+            <div>
+              <span class="bean-label">Strength</span>
+              <div class="bean-rating">
+                <span class="bean filled"></span>
+                <span class="bean filled"></span>
+                <span class="bean filled"></span>
+                <span class="bean filled"></span>
+                <span class="bean"></span>
+              </div>
+            </div>
+
+            <div>
+              <span class="bean-label">Acidity</span>
+              <div class="bean-rating">
+                <span class="bean filled"></span>
+                <span class="bean filled"></span>
+                <span class="bean filled"></span>
+                <span class="bean filled"></span>
+                <span class="bean filled"></span>
+              </div>
+            </div>
+
+            <div>
+              <span class="bean-label">Origin</span>
+              <span class="bean-value">Kenya</span>
+            </div>
+
+          </div>
+
+          <p class="bean-desc">
+            Bright, juicy and complex with berry notes and vibrant acidity.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>

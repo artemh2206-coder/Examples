@@ -1,0 +1,253 @@
+.coffee-beans-section {
+  padding: 70px 20px;
+  border-radius: 24px !important;
+  background:
+    radial-gradient(circle at top, rgba(255, 248, 225, 0.04), transparent 35%),
+    linear-gradient(180deg, #241813 0%, #1a120e 100%) !important;
+}
+
+.coffee-beans-box {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.coffee-beans-head {
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+.coffee-beans-kicker {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #d7a86e !important;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 1.8px !important;
+  text-transform: uppercase !important;
+}
+
+.coffee-beans-head h2 {
+  margin: 0;
+  color: #fff8e1 !important;
+  font-family: "Playfair Display", serif !important;
+  font-size: 40px !important;
+  font-weight: 700 !important;
+  line-height: 1.15 !important;
+}
+
+.coffee-beans-list {
+  width: 100%;
+  max-width: 560px;
+  height: 300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bean-row {
+  position: relative;
+  overflow: hidden;
+  flex: 0 0 42px;
+  min-height: 42px;
+  border: 1px solid rgba(255, 248, 225, 0.08) !important;
+  border-radius: 16px !important;
+  background:
+    linear-gradient(135deg, rgba(109, 76, 65, 0.22), rgba(52, 35, 28, 0.92)) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18) !important;
+  transition:
+    flex-basis 0.45s ease,
+    background 0.35s ease,
+    border-color 0.35s ease,
+    transform 0.35s ease,
+    box-shadow 0.35s ease !important;
+  cursor: pointer;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+}
+
+.bean-row:hover,
+.bean-row.active {
+  flex-basis: 128px;
+  background:
+    linear-gradient(135deg, rgba(141, 110, 99, 0.28), rgba(58, 39, 31, 0.98)) !important;
+  border-color: rgba(215, 168, 110, 0.32) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.26) !important;
+}
+
+.bean-row-title {
+  height: 42px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bean-name {
+  color: #fff8e1 !important;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.3px !important;
+}
+
+.bean-arrow {
+  color: #d7a86e !important;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  transition: transform 0.35s ease !important;
+}
+
+.bean-row:hover .bean-arrow,
+.bean-row.active .bean-arrow {
+  transform: rotate(45deg) !important;
+}
+
+.bean-row-content {
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  padding: 2px 16px 14px;
+  transition: opacity 0.28s ease, transform 0.35s ease !important;
+}
+
+.bean-row:hover .bean-row-content,
+.bean-row.active .bean-row-content {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.bean-meta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.bean-label {
+  display: block;
+  margin-bottom: 4px;
+  color: #bfaea3 !important;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+}
+
+.bean-stars,
+.bean-value {
+  color: #fff8e1 !important;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+}
+
+.bean-stars {
+  letter-spacing: 1.5px !important;
+}
+
+.bean-desc {
+  margin: 0 !important;
+  color: #e7d8cd !important;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+}
+
+/* плавное "разъезжание" соседей */
+.coffee-beans-list:hover .bean-row {
+  flex-basis: 36px;
+}
+
+.coffee-beans-list:hover .bean-row:hover {
+  flex-basis: 148px;
+}
+
+/* адаптив */
+@media (max-width: 1024px) {
+  .coffee-beans-head h2 {
+    font-size: 34px !important;
+  }
+
+  .coffee-beans-list {
+    max-width: 520px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 767px) {
+  .coffee-beans-section {
+    padding: 54px 14px;
+  }
+
+  .coffee-beans-head h2 {
+    font-size: 28px !important;
+  }
+
+  .coffee-beans-list {
+    max-width: 100%;
+    height: auto;
+    gap: 8px;
+  }
+
+  .bean-row,
+  .coffee-beans-list:hover .bean-row,
+  .bean-row.active,
+  .coffee-beans-list:hover .bean-row:hover {
+    flex-basis: auto !important;
+  }
+
+  .bean-row {
+    min-height: 42px;
+  }
+
+  .bean-row.active,
+  .bean-row:hover {
+    min-height: 138px;
+  }
+
+  .bean-name {
+    font-size: 13px !important;
+  }
+
+  .bean-desc {
+    font-size: 12px !important;
+  }
+}
+/* ===== ЗЁРНА КОФЕ ===== */
+.bean-rating {
+  display: flex;
+  gap: 6px;
+}
+
+.bean {
+  width: 12px;
+  height: 16px;
+  border-radius: 50% 50% 45% 45%;
+  background: rgba(255, 248, 225, 0.2);
+  position: relative;
+  transform: rotate(20deg);
+  transition: all 0.3s ease;
+}
+
+.bean::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  left: 50%;
+  width: 2px;
+  background: rgba(0,0,0,0.25);
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.bean.filled {
+  background: linear-gradient(145deg, #6D4C41, #3E2723);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}

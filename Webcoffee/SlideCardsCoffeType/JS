@@ -1,0 +1,23 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const rows = document.querySelectorAll(".bean-row");
+  const list = document.getElementById("coffeeBeansList");
+
+  if (!rows.length || !list) return;
+
+  rows.forEach((row) => {
+    row.addEventListener("mouseenter", function () {
+      rows.forEach((item) => item.classList.remove("active"));
+      this.classList.add("active");
+    });
+
+    row.addEventListener("click", function () {
+      rows.forEach((item) => item.classList.remove("active"));
+      this.classList.add("active");
+    });
+  });
+
+  list.addEventListener("mouseleave", function () {
+    rows.forEach((item) => item.classList.remove("active"));
+    rows[0].classList.add("active");
+  });
+});
